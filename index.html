@@ -15,8 +15,8 @@
         <table border="0" align="center" width="98%">
             <tr><td width="10%">Lane</td><td width="10%">Finish.No.</td><td width="60%">Team Name</td><td width="10%">Points Awarded</td><td width="10%">Multipliers</td></tr>
             <tr><td width="10%">1</td>
-            <td width="10%" class="select" id="test1">
-                <select id="test1" name="possibleVal" onchange="document.location.reload(true)">
+            <td width="10%">
+                <select name="possibleVal" onchange="displayValue()">
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -39,7 +39,7 @@
             <tr><td width="10%">8</td><td width="10%"></td><td width="60%"></td><td width="10%"></td><td width="10%"></td></tr>
 
         </table>
-        <script src="main.js"></script>
+        <script src="main.js">displayValue()</script>
         <h1 id="RightHead">Swim Relay</h1>
         <table border="0" align="center" width="98%">
 
