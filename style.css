@@ -1,0 +1,33 @@
+/* CSS Centering Code with the ID Selector "#center" */ 
+
+#main-header {
+    text-align: center;
+    color: white;
+    font-family: "helvetica neue", Arial, Helvetica, sans-serif;
+}
+
+#LeftHead {
+    text-align: left;
+    color: white;
+    font-family: "helvetica neue", Arial, Helvetica, sans-serif;
+}
+
+#RightHead {
+    text-align: right;
+    color: white;
+    font-family: "helvetica neue", Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-color: #006994;
+}
+
+table, th, td {
+    text-align: center;
+    
+  }
+
+th, td {
+  background-color: aliceblue;
+  
+}
