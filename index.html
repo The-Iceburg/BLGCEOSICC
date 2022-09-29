@@ -1,115 +1,801 @@
+
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>BLGC EOSIC Calculator</title>
+    <head>
+        <title>BLGC EOSIC Calculator</title>
         <link rel="stylesheet" href="style.css">
-	</head>
+        <link rel="icon" href="images/logo.png">
+        <script src="main.js"></script>
+    </head>
     <body>
-        <header id="main-header">
+        <nav id="main-header">
+            <img src="images/logo.png" align="left" width="77.5" height="54">
+            <h1 align="right">Bournemouth Lifeguard Corps EOSIC Results</h1>
+        </nav>
+        <div class="parent">
             <div>
-                <img src="images/logo.png" alt="My Sample Image" width="200">
-                <h1>Bournemouth Lifeguard Corps EOSIC Calculator</h1>
+                <table align="left" width="30%">
+                    <tr><td width="10%">Lane</td><td width="20%">Team Name</td></tr>
+                    <tr><td width="10%">1</td><td width="20%"><input type="text" id="team1" onchange="teamEntry('team1')"></td></tr>
+                    <tr><td width="10%">2</td><td width="20%"><input type="text" id="team2" onchange="teamEntry('team2')"></td></tr>
+                    <tr><td width="10%">3</td><td width="20%"><input type="text" id="team3" onchange="teamEntry('team3')"></td></tr>
+                    <tr><td width="10%">4</td><td width="20%"><input type="text" id="team4" onchange="teamEntry('team4')"></td></tr>
+                    <tr><td width="10%">5</td><td width="20%"><input type="text" id="team5" onchange="teamEntry('team5')"></td></tr>
+                    <tr><td width="10%">6</td><td width="20%"><input type="text" id="team6" onchange="teamEntry('team6')"></td></tr>
+                    <tr><td width="10%">7</td><td width="20%"><input type="text" id="team7" onchange="teamEntry('team7')"></td></tr>
+                    <tr><td width="10%">8</td><td width="20%"><input type="text" id="team8" onchange="teamEntry('team8')"></td></tr>
+                </table>
             </div>
-        </header>
-        <h1 id="LeftHead">Board Relay</h1>
-        <table border="0" align="center" width="98%">
-            <tr><td width="10%">Lane</td><td width="10%">Finish.No.</td><td width="60%">Team Name</td><td width="10%">Points Awarded</td><td width="10%">Multipliers</td></tr>
-            <tr><td width="10%">1</td>
-            <td width="10%">
-                <select name="possibleVal" onchange="displayValue()">
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
-                </select>
-            </td>
-            <td width="60%"><span id="testt"></span></td>
-            <td width="10%"></td>
-            <td width="10%"></td></tr>
-            <tr><td width="10%">2</td><td width="10%"></td><td width="60%"></td><td width="10%"></td><td width="10%"></td></tr>
-            <tr><td width="10%">3</td><td width="10%"></td><td width="60%"></td><td width="10%"></td><td width="10%"></td></tr>
-            <tr><td width="10%">4</td><td width="10%"></td><td width="60%"></td><td width="10%"></td><td width="10%"></td></tr>
-            <tr><td width="10%">5</td><td width="10%"></td><td width="60%"></td><td width="10%"></td><td width="10%"></td></tr>
-            <tr><td width="10%">6</td><td width="10%"></td><td width="60%"></td><td width="10%"></td><td width="10%"></td></tr>
-            <tr><td width="10%">7</td><td width="10%"></td><td width="60%"></td><td width="10%"></td><td width="10%"></td></tr>
-            <tr><td width="10%">8</td><td width="10%"></td><td width="60%"></td><td width="10%"></td><td width="10%"></td></tr>
+            <div>
+                <h1>End Of Season Competition</h1>
+                <p>To celebrate the end of a great season of training the cadets are holding an end of season competition designed to be a great chance to have one final bit of fun before beach training packs up for the winter months. A massive THANK YOU to all the instrouctors who made this season possible! We're all so gratefull for the time you give us. Events will include:</p>
+                <p>⚪ Board Relay⚪ Swim Relay ⚪ Beach Flags ⚪ Beach Relay ⚪ All on Board Race ⚪ Tube Relay ⚪</p>
+            </div>
+        </div>
+        <hr>
+        <hr>
+        <h1 id="main">Events</h1>
+        <hr>
+        <hr>
 
-        </table>
-        <script src="main.js">displayValue()</script>
-        <h1 id="RightHead">Swim Relay</h1>
-        <table border="0" align="center" width="98%">
+        <!-- ----------------------------- -->
+        <!--          Board Relay          -->
+        <!-- ----------------------------- -->
+        
+        <div class="parent">
+            <div>
+                <table border="0" align="right" width="50%">
+                    <tr><td width="10%">Lane</td><td width="10%">Finish.No.</td><td width="60%">Team Name</td><td width="10%">Points Awarded</td><td width="10%">Multiplier (1x)</td></tr>
+                    <tr><td width="5%">1</td><td width="5%">
+                        <select id="R1BRFP" onchange="pointAward('R1BRPA')">
+                            <option hidden></option>
+                            <option value="15">1</option>
+                            <option value="12">2</option>
+                            <option value="10">3</option>
+                            <option value="8">4</option>
+                            <option value="6">5</option>
+                            <option value="4">6</option>
+                            <option value="2">7</option>
+                            <option value="1">8</option>
+                        </select>
+                    </td><td width="30%" class="team1name"></td><td width="5%" id="R1BRPA"></td><td width="5%" id="R1BRMU"></td></tr>
+                    <tr><td width="5%">2</td><td width="5%">
+                        <select id="R2BRFP" onchange="pointAward('R2BRPA')">
+                            <option hidden></option>
+                            <option value="15">1</option>
+                            <option value="12">2</option>
+                            <option value="10">3</option>
+                            <option value="8">4</option>
+                            <option value="6">5</option>
+                            <option value="4">6</option>
+                            <option value="2">7</option>
+                            <option value="1">8</option>
+                        </select>
+                    </td><td width="30%" class="team2name"></td><td width="5%" id="R2BRPA"></td><td width="5%" id="R2BRMU"></td></tr>
+                    <tr><td width="5%">3</td><td width="5%">
+                        <select id="R3BRFP" onchange="pointAward('R3BRPA')">
+                            <option hidden></option>
+                            <option value="15">1</option>
+                            <option value="12">2</option>
+                            <option value="10">3</option>
+                            <option value="8">4</option>
+                            <option value="6">5</option>
+                            <option value="4">6</option>
+                            <option value="2">7</option>
+                            <option value="1">8</option>
+                        </select>
+                    </td><td width="30%" class="team3name"></td><td width="5%" id="R3BRPA"></td><td width="5%" id="R3BRMU"></td></tr>
+                    <tr><td width="5%">4</td><td width="5%">
+                        <select id="R4BRFP" onchange="pointAward('R4BRPA')">
+                            <option hidden></option>
+                            <option value="15">1</option>
+                            <option value="12">2</option>
+                            <option value="10">3</option>
+                            <option value="8">4</option>
+                            <option value="6">5</option>
+                            <option value="4">6</option>
+                            <option value="2">7</option>
+                            <option value="1">8</option>
+                        </select>
+                    </td><td width="30%" class="team4name"></td><td width="5%" id="R4BRPA"></td><td width="5%" id="R4BRMU"></td></tr>
+                    <tr><td width="5%">5</td><td width="5%">
+                        <select id="R5BRFP" onchange="pointAward('R5BRPA')">
+                            <option hidden></option>
+                            <option value="15">1</option>
+                            <option value="12">2</option>
+                            <option value="10">3</option>
+                            <option value="8">4</option>
+                            <option value="6">5</option>
+                            <option value="4">6</option>
+                            <option value="2">7</option>
+                            <option value="1">8</option>
+                        </select>
+                    </td><td width="30%" class="team5name"></td><td width="5%" id="R5BRPA"></td><td width="5%" id="R5BRMU"></td></tr>
+                    <tr><td width="5%">6</td><td width="5%">
+                        <select id="R6BRFP" onchange="pointAward('R6BRPA')">
+                            <option hidden></option>
+                            <option value="15">1</option>
+                            <option value="12">2</option>
+                            <option value="10">3</option>
+                            <option value="8">4</option>
+                            <option value="6">5</option>
+                            <option value="4">6</option>
+                            <option value="2">7</option>
+                            <option value="1">8</option>
+                        </select>
+                    </td><td width="30%" class="team6name"></td><td width="5%" id="R6BRPA"></td><td width="5%" id="R6BRMU"></td></tr>
+                    <tr><td width="5%">7</td><td width="5%">
+                        <select id="R7BRFP" onchange="pointAward('R7BRPA')">
+                            <option hidden></option>
+                            <option value="15">1</option>
+                            <option value="12">2</option>
+                            <option value="10">3</option>
+                            <option value="8">4</option>
+                            <option value="6">5</option>
+                            <option value="4">6</option>
+                            <option value="2">7</option>
+                            <option value="1">8</option>
+                        </select>
+                    </td><td width="30%" class="team7name"></td><td width="5%" id="R7BRPA"></td><td width="5%" id="R7BRMU"></td></tr>
+                    <tr><td width="5%">8</td><td width="5%">
+                        <select id="R8BRFP" onchange="pointAward('R8BRPA')">
+                            <option hidden></option>
+                            <option value="15">1</option>
+                            <option value="12">2</option>
+                            <option value="10">3</option>
+                            <option value="8">4</option>
+                            <option value="6">5</option>
+                            <option value="4">6</option>
+                            <option value="2">7</option>
+                            <option value="1">8</option>
+                        </select>
+                    </td><td width="30%" class="team8name"></td><td width="5%" id="R8BRPA"></td><td width="5%" id="R8BRMU"></td></tr>
+                </table>
+            </div>
+            <div>
+                <h1 id="event-header">Board Relay</h1>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores illum porro perspiciatis distinctio itaque sapiente eveniet vero magnam, in fugit ipsa labore eaque provident sed nesciunt dolorem dicta. Ex, distinctio.
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores vel debitis iure eius rerum accusantium possimus necessitatibus architecto dolorem nam? Magnam ea doloremque totam dolore, ratione impedit eveniet ducimus sunt.
+                </p>
+            </div>
+        </div>
+        <hr>
 
-            <tr><td width="10%">Lane</td><td width="10%">Finish.No.</td><td width="60%">Team Name</td><td width="10%">Points Awarded</td><td width="10%">Running Total</td></tr>
-            <tr><td width="10%">1</td><td width="10%"></td><td width="60%"></td><td width="10%"></td><td width="10%"></td></tr>
-            <tr><td width="10%">2</td><td width="10%"></td><td width="60%"></td><td width="10%"></td><td width="10%"></td></tr>
-            <tr><td width="10%">3</td><td width="10%"></td><td width="60%"></td><td width="10%"></td><td width="10%"></td></tr>
-            <tr><td width="10%">4</td><td width="10%"></td><td width="60%"></td><td width="10%"></td><td width="10%"></td></tr>
-            <tr><td width="10%">5</td><td width="10%"></td><td width="60%"></td><td width="10%"></td><td width="10%"></td></tr>
-            <tr><td width="10%">6</td><td width="10%"></td><td width="60%"></td><td width="10%"></td><td width="10%"></td></tr>
-            <tr><td width="10%">7</td><td width="10%"></td><td width="60%"></td><td width="10%"></td><td width="10%"></td></tr>
-            <tr><td width="10%">8</td><td width="10%"></td><td width="60%"></td><td width="10%"></td><td width="10%"></td></tr>
-            
-        </table>
-        <h1 id="LeftHead">Beach Flags</h1>
-        <table border="0" align="center" width="98%">
+        <!-- ----------------------------- -->
+        <!--       All on Board Race       -->
+        <!-- ----------------------------- -->
+        
+        <div class="parent">
+            <div>
+                <table border="0" align="left" width="50%">
+                    <tr><td width="10%">Lane</td><td width="10%">Finish.No.</td><td width="60%">Team Name</td><td width="10%">Points Awarded</td><td width="10%">Multiplier (1x)</td></tr>
+                    <tr><td width="5%">1</td><td width="5%">
+                        <select name="possibleVal" onchange="pointAward('r1PAaob')">
+                            <option hidden></option>
+                            <option value="15">1</option>
+                            <option value="12">2</option>
+                            <option value="10">3</option>
+                            <option value="8">4</option>
+                            <option value="6">5</option>
+                            <option value="4">6</option>
+                            <option value="2">7</option>
+                            <option value="1">8</option>
+                        </select>
+                    </td><td width="30%" class="team1name"></td><td width="5%"></td><td width="5%"></td></tr>
+                    <tr><td width="5%">2</td><td width="5%">
+                        <select name="possibleVal" onchange="pointAward('r2PAaob')">
+                            <option hidden></option>
+                            <option value="15">1</option>
+                            <option value="12">2</option>
+                            <option value="10">3</option>
+                            <option value="8">4</option>
+                            <option value="6">5</option>
+                            <option value="4">6</option>
+                            <option value="2">7</option>
+                            <option value="1">8</option>
+                        </select>
+                    </td><td width="30%" class="team2name"></td><td width="5%"></td><td width="5%"></td></tr>
+                    <tr><td width="5%">3</td><td width="5%">
+                        <select name="possibleVal" onchange="pointAward('r3PAaob')">
+                            <option hidden></option>
+                            <option value="15">1</option>
+                            <option value="12">2</option>
+                            <option value="10">3</option>
+                            <option value="8">4</option>
+                            <option value="6">5</option>
+                            <option value="4">6</option>
+                            <option value="2">7</option>
+                            <option value="1">8</option>
+                        </select>
+                    </td><td width="30%" class="team3name"></td><td width="5%"></td><td width="5%"></td></tr>
+                    <tr><td width="5%">4</td><td width="5%">
+                        <select name="possibleVal" onchange="pointAward('r4PAaob')">
+                            <option hidden></option>
+                            <option value="15">1</option>
+                            <option value="12">2</option>
+                            <option value="10">3</option>
+                            <option value="8">4</option>
+                            <option value="6">5</option>
+                            <option value="4">6</option>
+                            <option value="2">7</option>
+                            <option value="1">8</option>
+                        </select>
+                    </td><td width="30%" class="team4name"></td><td width="5%"></td><td width="5%"></td></tr>
+                    <tr><td width="5%">5</td><td width="5%">
+                        <select name="possibleVal" onchange="pointAward('r5PAaob')">
+                            <option hidden></option>
+                            <option value="15">1</option>
+                            <option value="12">2</option>
+                            <option value="10">3</option>
+                            <option value="8">4</option>
+                            <option value="6">5</option>
+                            <option value="4">6</option>
+                            <option value="2">7</option>
+                            <option value="1">8</option>
+                        </select>
+                    </td><td width="30%" class="team5name"></td><td width="5%"></td><td width="5%"></td></tr>
+                    <tr><td width="5%">6</td><td width="5%">
+                        <select name="possibleVal" onchange="pointAward('r6PAaob')">
+                            <option hidden></option>
+                            <option value="15">1</option>
+                            <option value="12">2</option>
+                            <option value="10">3</option>
+                            <option value="8">4</option>
+                            <option value="6">5</option>
+                            <option value="4">6</option>
+                            <option value="2">7</option>
+                            <option value="1">8</option>
+                        </select>
+                    </td><td width="30%" class="team6name"></td><td width="5%"></td><td width="5%"></td></tr>
+                    <tr><td width="5%">7</td><td width="5%">
+                        <select name="possibleVal" onchange="pointAward('r7PAaob')">
+                            <option hidden></option>
+                            <option value="15">1</option>
+                            <option value="12">2</option>
+                            <option value="10">3</option>
+                            <option value="8">4</option>
+                            <option value="6">5</option>
+                            <option value="4">6</option>
+                            <option value="2">7</option>
+                            <option value="1">8</option>
+                        </select>
+                    </td><td width="30%" class="team7name"></td><td width="5%"></td><td width="5%"></td></tr>
+                    <tr><td width="5%">8</td><td width="5%">
+                        <select name="possibleVal" onchange="pointAward('r8PAaob')">
+                            <option hidden></option>
+                            <option value="15">1</option>
+                            <option value="12">2</option>
+                            <option value="10">3</option>
+                            <option value="8">4</option>
+                            <option value="6">5</option>
+                            <option value="4">6</option>
+                            <option value="2">7</option>
+                            <option value="1">8</option>
+                        </select>
+                    </td><td width="30%" class="team8name"></td><td width="5%"></td><td width="5%"></td></tr>
+                </table>
+            </div>
+            <div>
+                <h1 id="event-header-right">All on Board Race</h1>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores illum porro perspiciatis distinctio itaque sapiente eveniet vero magnam, in fugit ipsa labore eaque provident sed nesciunt dolorem dicta. Ex, distinctio.
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores vel debitis iure eius rerum accusantium possimus necessitatibus architecto dolorem nam? Magnam ea doloremque totam dolore, ratione impedit eveniet ducimus sunt.
+                </p>
+            </div>
+        </div>
+        <hr>
 
-            <tr><td width="10%">Lane</td><td width="10%">Finish.No.</td><td width="60%">Team Name</td><td width="10%">Points Awarded</td><td width="10%">Running Total</td></tr>
-            <tr><td width="10%">1</td><td width="10%"></td><td width="60%"></td><td width="10%"></td><td width="10%"></td></tr>
-            <tr><td width="10%">2</td><td width="10%"></td><td width="60%"></td><td width="10%"></td><td width="10%"></td></tr>
-            <tr><td width="10%">3</td><td width="10%"></td><td width="60%"></td><td width="10%"></td><td width="10%"></td></tr>
-            <tr><td width="10%">4</td><td width="10%"></td><td width="60%"></td><td width="10%"></td><td width="10%"></td></tr>
-            <tr><td width="10%">5</td><td width="10%"></td><td width="60%"></td><td width="10%"></td><td width="10%"></td></tr>
-            <tr><td width="10%">6</td><td width="10%"></td><td width="60%"></td><td width="10%"></td><td width="10%"></td></tr>
-            <tr><td width="10%">7</td><td width="10%"></td><td width="60%"></td><td width="10%"></td><td width="10%"></td></tr>
-            <tr><td width="10%">8</td><td width="10%"></td><td width="60%"></td><td width="10%"></td><td width="10%"></td></tr>
-            
-        </table>
-        <h1 id="RightHead">Running Relay</h1>
-        <table border="0" align="center" width="98%">
+        <!-- ----------------------------- -->
+        <!--          Swim  Relay          -->
+        <!-- ----------------------------- -->
+        
+        <div class="parent">
+            <div>
+                <table border="0" align="right" width="50%">
+                    <tr><td width="10%">Lane</td><td width="10%">Finish.No.</td><td width="60%">Team Name</td><td width="10%">Points Awarded</td><td width="10%">Multiplier (1x)</td></tr>
+                    <tr><td width="5%">1</td><td width="5%">
+                        <select name="possibleVal" onchange="pointAward('r1PAbr')">
+                            <option hidden></option>
+                            <option value="15">1</option>
+                            <option value="12">2</option>
+                            <option value="10">3</option>
+                            <option value="8">4</option>
+                            <option value="6">5</option>
+                            <option value="4">6</option>
+                            <option value="2">7</option>
+                            <option value="1">8</option>
+                        </select>
+                    </td><td width="30%" class="team1name"></td><td width="5%"></td><td width="5%"></td></tr>
+                    <tr><td width="5%">2</td><td width="5%">
+                        <select name="possibleVal" onchange="pointAward('r2PAbr')">
+                            <option hidden></option>
+                            <option value="15">1</option>
+                            <option value="12">2</option>
+                            <option value="10">3</option>
+                            <option value="8">4</option>
+                            <option value="6">5</option>
+                            <option value="4">6</option>
+                            <option value="2">7</option>
+                            <option value="1">8</option>
+                        </select>
+                    </td><td width="30%" class="team2name"></td><td width="5%"></td><td width="5%"></td></tr>
+                    <tr><td width="5%">3</td><td width="5%">
+                        <select name="possibleVal" onchange="pointAward('r3PAbr')">
+                            <option hidden></option>
+                            <option value="15">1</option>
+                            <option value="12">2</option>
+                            <option value="10">3</option>
+                            <option value="8">4</option>
+                            <option value="6">5</option>
+                            <option value="4">6</option>
+                            <option value="2">7</option>
+                            <option value="1">8</option>
+                        </select>
+                    </td><td width="30%" class="team3name"></td><td width="5%"></td><td width="5%"></td></tr>
+                    <tr><td width="5%">4</td><td width="5%">
+                        <select name="possibleVal" onchange="pointAward('r4PAbr')">
+                            <option hidden></option>
+                            <option value="15">1</option>
+                            <option value="12">2</option>
+                            <option value="10">3</option>
+                            <option value="8">4</option>
+                            <option value="6">5</option>
+                            <option value="4">6</option>
+                            <option value="2">7</option>
+                            <option value="1">8</option>
+                        </select>
+                    </td><td width="30%" class="team4name"></td><td width="5%"></td><td width="5%"></td></tr>
+                    <tr><td width="5%">5</td><td width="5%">
+                        <select name="possibleVal" onchange="pointAward('r5PAbr')">
+                            <option hidden></option>
+                            <option value="15">1</option>
+                            <option value="12">2</option>
+                            <option value="10">3</option>
+                            <option value="8">4</option>
+                            <option value="6">5</option>
+                            <option value="4">6</option>
+                            <option value="2">7</option>
+                            <option value="1">8</option>
+                        </select>
+                    </td><td width="30%" class="team5name"></td><td width="5%"></td><td width="5%"></td></tr>
+                    <tr><td width="5%">6</td><td width="5%">
+                        <select name="possibleVal" onchange="pointAward('r6PAbr')">
+                            <option hidden></option>
+                            <option value="15">1</option>
+                            <option value="12">2</option>
+                            <option value="10">3</option>
+                            <option value="8">4</option>
+                            <option value="6">5</option>
+                            <option value="4">6</option>
+                            <option value="2">7</option>
+                            <option value="1">8</option>
+                        </select>
+                    </td><td width="30%" class="team6name"></td><td width="5%"></td><td width="5%"></td></tr>
+                    <tr><td width="5%">7</td><td width="5%">
+                        <select name="possibleVal" onchange="pointAward('r7PAbr')">
+                            <option hidden></option>
+                            <option value="15">1</option>
+                            <option value="12">2</option>
+                            <option value="10">3</option>
+                            <option value="8">4</option>
+                            <option value="6">5</option>
+                            <option value="4">6</option>
+                            <option value="2">7</option>
+                            <option value="1">8</option>
+                        </select>
+                    </td><td width="30%" class="team7name"></td><td width="5%"></td><td width="5%"></td></tr>
+                    <tr><td width="5%">8</td><td width="5%">
+                        <select name="possibleVal" onchange="pointAward('r8PAbr')">
+                            <option hidden></option>
+                            <option value="15">1</option>
+                            <option value="12">2</option>
+                            <option value="10">3</option>
+                            <option value="8">4</option>
+                            <option value="6">5</option>
+                            <option value="4">6</option>
+                            <option value="2">7</option>
+                            <option value="1">8</option>
+                        </select>
+                    </td><td width="30%" class="team8name"></td><td width="5%"></td><td width="5%"></td></tr>
+                </table>
+            </div>
+            <div>
+                <h1 id="event-header">Swim Relay</h1>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores illum porro perspiciatis distinctio itaque sapiente eveniet vero magnam, in fugit ipsa labore eaque provident sed nesciunt dolorem dicta. Ex, distinctio.
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores vel debitis iure eius rerum accusantium possimus necessitatibus architecto dolorem nam? Magnam ea doloremque totam dolore, ratione impedit eveniet ducimus sunt.
+                </p>
+            </div>
+        </div>
+        <hr>
 
-            <tr><td width="10%">Lane</td><td width="10%">Finish.No.</td><td width="60%">Team Name</td><td width="10%">Points Awarded</td><td width="10%">Running Total</td></tr>
-            <tr><td width="10%">1</td><td width="10%"></td><td width="60%"></td><td width="10%"></td><td width="10%"></td></tr>
-            <tr><td width="10%">2</td><td width="10%"></td><td width="60%"></td><td width="10%"></td><td width="10%"></td></tr>
-            <tr><td width="10%">3</td><td width="10%"></td><td width="60%"></td><td width="10%"></td><td width="10%"></td></tr>
-            <tr><td width="10%">4</td><td width="10%"></td><td width="60%"></td><td width="10%"></td><td width="10%"></td></tr>
-            <tr><td width="10%">5</td><td width="10%"></td><td width="60%"></td><td width="10%"></td><td width="10%"></td></tr>
-            <tr><td width="10%">6</td><td width="10%"></td><td width="60%"></td><td width="10%"></td><td width="10%"></td></tr>
-            <tr><td width="10%">7</td><td width="10%"></td><td width="60%"></td><td width="10%"></td><td width="10%"></td></tr>
-            <tr><td width="10%">8</td><td width="10%"></td><td width="60%"></td><td width="10%"></td><td width="10%"></td></tr>
-            
-        </table>
-        <h1 id="LeftHead">All On Board Race</h1>
-        <table border="0" align="center" width="98%">
+        <!-- ----------------------------- -->
+        <!--          Tube  Relay          -->
+        <!-- ----------------------------- -->
+        
+        <div class="parent">
+            <div>
+                <table border="0" align="left" width="50%">
+                    <tr><td width="10%">Lane</td><td width="10%">Finish.No.</td><td width="60%">Team Name</td><td width="10%">Points Awarded</td><td width="10%">Multiplier (1x)</td></tr>
+                    <tr><td width="5%">1</td><td width="5%">
+                        <select name="possibleVal" onchange="pointAward('r1PAbr')">
+                            <option hidden></option>
+                            <option value="15">1</option>
+                            <option value="12">2</option>
+                            <option value="10">3</option>
+                            <option value="8">4</option>
+                            <option value="6">5</option>
+                            <option value="4">6</option>
+                            <option value="2">7</option>
+                            <option value="1">8</option>
+                        </select>
+                    </td><td width="30%" class="team1name"></td><td width="5%"></td><td width="5%"></td></tr>
+                    <tr><td width="5%">2</td><td width="5%">
+                        <select name="possibleVal" onchange="pointAward('r2PAbr')">
+                            <option hidden></option>
+                            <option value="15">1</option>
+                            <option value="12">2</option>
+                            <option value="10">3</option>
+                            <option value="8">4</option>
+                            <option value="6">5</option>
+                            <option value="4">6</option>
+                            <option value="2">7</option>
+                            <option value="1">8</option>
+                        </select>
+                    </td><td width="30%" class="team2name"></td><td width="5%"></td><td width="5%"></td></tr>
+                    <tr><td width="5%">3</td><td width="5%">
+                        <select name="possibleVal" onchange="pointAward('r3PAbr')">
+                            <option hidden></option>
+                            <option value="15">1</option>
+                            <option value="12">2</option>
+                            <option value="10">3</option>
+                            <option value="8">4</option>
+                            <option value="6">5</option>
+                            <option value="4">6</option>
+                            <option value="2">7</option>
+                            <option value="1">8</option>
+                        </select>
+                    </td><td width="30%" class="team3name"></td><td width="5%"></td><td width="5%"></td></tr>
+                    <tr><td width="5%">4</td><td width="5%">
+                        <select name="possibleVal" onchange="pointAward('r4PAbr')">
+                            <option hidden></option>
+                            <option value="15">1</option>
+                            <option value="12">2</option>
+                            <option value="10">3</option>
+                            <option value="8">4</option>
+                            <option value="6">5</option>
+                            <option value="4">6</option>
+                            <option value="2">7</option>
+                            <option value="1">8</option>
+                        </select>
+                    </td><td width="30%" class="team4name"></td><td width="5%"></td><td width="5%"></td></tr>
+                    <tr><td width="5%">5</td><td width="5%">
+                        <select name="possibleVal" onchange="pointAward('r5PAbr')">
+                            <option hidden></option>
+                            <option value="15">1</option>
+                            <option value="12">2</option>
+                            <option value="10">3</option>
+                            <option value="8">4</option>
+                            <option value="6">5</option>
+                            <option value="4">6</option>
+                            <option value="2">7</option>
+                            <option value="1">8</option>
+                        </select>
+                    </td><td width="30%" class="team5name"></td><td width="5%"></td><td width="5%"></td></tr>
+                    <tr><td width="5%">6</td><td width="5%">
+                        <select name="possibleVal" onchange="pointAward('r6PAbr')">
+                            <option hidden></option>
+                            <option value="15">1</option>
+                            <option value="12">2</option>
+                            <option value="10">3</option>
+                            <option value="8">4</option>
+                            <option value="6">5</option>
+                            <option value="4">6</option>
+                            <option value="2">7</option>
+                            <option value="1">8</option>
+                        </select>
+                    </td><td width="30%" class="team6name"></td><td width="5%"></td><td width="5%"></td></tr>
+                    <tr><td width="5%">7</td><td width="5%">
+                        <select name="possibleVal" onchange="pointAward('r7PAbr')">
+                            <option hidden></option>
+                            <option value="15">1</option>
+                            <option value="12">2</option>
+                            <option value="10">3</option>
+                            <option value="8">4</option>
+                            <option value="6">5</option>
+                            <option value="4">6</option>
+                            <option value="2">7</option>
+                            <option value="1">8</option>
+                        </select>
+                    </td><td width="30%" class="team7name"></td><td width="5%"></td><td width="5%"></td></tr>
+                    <tr><td width="5%">8</td><td width="5%">
+                        <select name="possibleVal" onchange="pointAward('r8PAbr')">
+                            <option hidden></option>
+                            <option value="15">1</option>
+                            <option value="12">2</option>
+                            <option value="10">3</option>
+                            <option value="8">4</option>
+                            <option value="6">5</option>
+                            <option value="4">6</option>
+                            <option value="2">7</option>
+                            <option value="1">8</option>
+                        </select>
+                    </td><td width="30%" class="team7name"></td><td width="5%"></td><td width="5%"></td></tr>
+                </table>
+            </div>
+            <div>
+                <h1 id="event-header-right">Tube Relay</h1>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores illum porro perspiciatis distinctio itaque sapiente eveniet vero magnam, in fugit ipsa labore eaque provident sed nesciunt dolorem dicta. Ex, distinctio.
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores vel debitis iure eius rerum accusantium possimus necessitatibus architecto dolorem nam? Magnam ea doloremque totam dolore, ratione impedit eveniet ducimus sunt.
+                </p>
+            </div>
+        </div>
+        <hr>
 
-            <tr><td width="10%">Lane</td><td width="10%">Finish.No.</td><td width="60%">Team Name</td><td width="10%">Points Awarded</td><td width="10%">Running Total</td></tr>
-            <tr><td width="10%">1</td><td width="10%"></td><td width="60%"></td><td width="10%"></td><td width="10%"></td></tr>
-            <tr><td width="10%">2</td><td width="10%"></td><td width="60%"></td><td width="10%"></td><td width="10%"></td></tr>
-            <tr><td width="10%">3</td><td width="10%"></td><td width="60%"></td><td width="10%"></td><td width="10%"></td></tr>
-            <tr><td width="10%">4</td><td width="10%"></td><td width="60%"></td><td width="10%"></td><td width="10%"></td></tr>
-            <tr><td width="10%">5</td><td width="10%"></td><td width="60%"></td><td width="10%"></td><td width="10%"></td></tr>
-            <tr><td width="10%">6</td><td width="10%"></td><td width="60%"></td><td width="10%"></td><td width="10%"></td></tr>
-            <tr><td width="10%">7</td><td width="10%"></td><td width="60%"></td><td width="10%"></td><td width="10%"></td></tr>
-            <tr><td width="10%">8</td><td width="10%"></td><td width="60%"></td><td width="10%"></td><td width="10%"></td></tr>
-            
-        </table>
-        <h1 id="RightHead">Tube Relay</h1>
-        <table border="0" align="center" width="98%">
+        <!-- ----------------------------- -->
+        <!--          Sprint Relay          -->
+        <!-- ----------------------------- -->
+        
+        <div class="parent">
+            <div>
+                <table border="0" align="right" width="50%">
+                    <tr><td width="10%">Lane</td><td width="10%">Finish.No.</td><td width="60%">Team Name</td><td width="10%">Points Awarded</td><td width="10%">Multiplier (1x)</td></tr>
+                    <tr><td width="5%">1</td><td width="5%">
+                        <select name="possibleVal" onchange="pointAward('r1PAbr')">
+                            <option hidden></option>
+                            <option value="15">1</option>
+                            <option value="12">2</option>
+                            <option value="10">3</option>
+                            <option value="8">4</option>
+                            <option value="6">5</option>
+                            <option value="4">6</option>
+                            <option value="2">7</option>
+                            <option value="1">8</option>
+                        </select>
+                    </td><td width="30%" class="team1name"></td><td width="5%"></td><td width="5%"></td></tr>
+                    <tr><td width="5%">2</td><td width="5%">
+                        <select name="possibleVal" onchange="pointAward('r2PAbr')">
+                            <option hidden></option>
+                            <option value="15">1</option>
+                            <option value="12">2</option>
+                            <option value="10">3</option>
+                            <option value="8">4</option>
+                            <option value="6">5</option>
+                            <option value="4">6</option>
+                            <option value="2">7</option>
+                            <option value="1">8</option>
+                        </select>
+                    </td><td width="30%" class="team2name"></td><td width="5%"></td><td width="5%"></td></tr>
+                    <tr><td width="5%">3</td><td width="5%">
+                        <select name="possibleVal" onchange="pointAward('r3PAbr')">
+                            <option hidden></option>
+                            <option value="15">1</option>
+                            <option value="12">2</option>
+                            <option value="10">3</option>
+                            <option value="8">4</option>
+                            <option value="6">5</option>
+                            <option value="4">6</option>
+                            <option value="2">7</option>
+                            <option value="1">8</option>
+                        </select>
+                    </td><td width="30%" class="team3name"></td><td width="5%"></td><td width="5%"></td></tr>
+                    <tr><td width="5%">4</td><td width="5%">
+                        <select name="possibleVal" onchange="pointAward('r4PAbr')">
+                            <option hidden></option>
+                            <option value="15">1</option>
+                            <option value="12">2</option>
+                            <option value="10">3</option>
+                            <option value="8">4</option>
+                            <option value="6">5</option>
+                            <option value="4">6</option>
+                            <option value="2">7</option>
+                            <option value="1">8</option>
+                        </select>
+                    </td><td width="30%" class="team4name"></td><td width="5%"></td><td width="5%"></td></tr>
+                    <tr><td width="5%">5</td><td width="5%">
+                        <select name="possibleVal" onchange="pointAward('r5PAbr')">
+                            <option hidden></option>
+                            <option value="15">1</option>
+                            <option value="12">2</option>
+                            <option value="10">3</option>
+                            <option value="8">4</option>
+                            <option value="6">5</option>
+                            <option value="4">6</option>
+                            <option value="2">7</option>
+                            <option value="1">8</option>
+                        </select>
+                    </td><td width="30%" class="team5name"></td><td width="5%"></td><td width="5%"></td></tr>
+                    <tr><td width="5%">6</td><td width="5%">
+                        <select name="possibleVal" onchange="pointAward('r6PAbr')">
+                            <option hidden></option>
+                            <option value="15">1</option>
+                            <option value="12">2</option>
+                            <option value="10">3</option>
+                            <option value="8">4</option>
+                            <option value="6">5</option>
+                            <option value="4">6</option>
+                            <option value="2">7</option>
+                            <option value="1">8</option>
+                        </select>
+                    </td><td width="30%" class="team6name"></td><td width="5%"></td><td width="5%"></td></tr>
+                    <tr><td width="5%">7</td><td width="5%">
+                        <select name="possibleVal" onchange="pointAward('r7PAbr')">
+                            <option hidden></option>
+                            <option value="15">1</option>
+                            <option value="12">2</option>
+                            <option value="10">3</option>
+                            <option value="8">4</option>
+                            <option value="6">5</option>
+                            <option value="4">6</option>
+                            <option value="2">7</option>
+                            <option value="1">8</option>
+                        </select>
+                    </td><td width="30%" class="team7name"></td><td width="5%"></td><td width="5%"></td></tr>
+                    <tr><td width="5%">8</td><td width="5%">
+                        <select name="possibleVal" onchange="pointAward('r8PAbr')">
+                            <option hidden></option>
+                            <option value="15">1</option>
+                            <option value="12">2</option>
+                            <option value="10">3</option>
+                            <option value="8">4</option>
+                            <option value="6">5</option>
+                            <option value="4">6</option>
+                            <option value="2">7</option>
+                            <option value="1">8</option>
+                        </select>
+                    </td><td width="30%" class="team8name"></td><td width="5%"></td><td width="5%"></td></tr>
+                </table>
+            </div>
+            <div>
+                <h1 id="event-header">Sprint Relay</h1>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores illum porro perspiciatis distinctio itaque sapiente eveniet vero magnam, in fugit ipsa labore eaque provident sed nesciunt dolorem dicta. Ex, distinctio.
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores vel debitis iure eius rerum accusantium possimus necessitatibus architecto dolorem nam? Magnam ea doloremque totam dolore, ratione impedit eveniet ducimus sunt.
+                </p>
+            </div>
+        </div>
+        <hr>
 
-            <tr><td width="10%">Lane</td><td width="10%">Finish.No.</td><td width="60%">Team Name</td><td width="10%">Points Awarded</td><td width="10%">Running Total</td></tr>
-            <tr><td width="10%">1</td><td width="10%"></td><td width="60%"></td><td width="10%"></td><td width="10%"></td></tr>
-            <tr><td width="10%">2</td><td width="10%"></td><td width="60%"></td><td width="10%"></td><td width="10%"></td></tr>
-            <tr><td width="10%">3</td><td width="10%"></td><td width="60%"></td><td width="10%"></td><td width="10%"></td></tr>
-            <tr><td width="10%">4</td><td width="10%"></td><td width="60%"></td><td width="10%"></td><td width="10%"></td></tr>
-            <tr><td width="10%">5</td><td width="10%"></td><td width="60%"></td><td width="10%"></td><td width="10%"></td></tr>
-            <tr><td width="10%">6</td><td width="10%"></td><td width="60%"></td><td width="10%"></td><td width="10%"></td></tr>
-            <tr><td width="10%">7</td><td width="10%"></td><td width="60%"></td><td width="10%"></td><td width="10%"></td></tr>
-            <tr><td width="10%">8</td><td width="10%"></td><td width="60%"></td><td width="10%"></td><td width="10%"></td></tr>
-            
+
+        <!-- ----------------------------- -->
+        <!--          Beach Flags          -->
+        <!-- ----------------------------- -->
+        
+        <div class="parent">
+            <div>
+                <table border="0" align="left" width="50%">
+                    <tr><td width="10%">Lane</td><td width="10%">Finish.No.</td><td width="60%">Team Name</td><td width="10%">Points Awarded</td><td width="10%">Multiplier (1x)</td></tr>
+                    <tr><td width="5%">1</td><td width="5%">
+                        <select name="possibleVal" onchange="pointAward('r1PAbr')">
+                            <option hidden></option>
+                            <option value="15">1</option>
+                            <option value="12">2</option>
+                            <option value="10">3</option>
+                            <option value="8">4</option>
+                            <option value="6">5</option>
+                            <option value="4">6</option>
+                            <option value="2">7</option>
+                            <option value="1">8</option>
+                        </select>
+                    </td><td width="30%" class="team1name"></td><td width="5%"></td><td width="5%"></td></tr>
+                    <tr><td width="5%">2</td><td width="5%">
+                        <select name="possibleVal" onchange="pointAward('r2PAbr')">
+                            <option hidden></option>
+                            <option value="15">1</option>
+                            <option value="12">2</option>
+                            <option value="10">3</option>
+                            <option value="8">4</option>
+                            <option value="6">5</option>
+                            <option value="4">6</option>
+                            <option value="2">7</option>
+                            <option value="1">8</option>
+                        </select>
+                    </td><td width="30%" class="team2name"></td><td width="5%"></td><td width="5%"></td></tr>
+                    <tr><td width="5%">3</td><td width="5%">
+                        <select name="possibleVal" onchange="pointAward('r3PAbr')">
+                            <option hidden></option>
+                            <option value="15">1</option>
+                            <option value="12">2</option>
+                            <option value="10">3</option>
+                            <option value="8">4</option>
+                            <option value="6">5</option>
+                            <option value="4">6</option>
+                            <option value="2">7</option>
+                            <option value="1">8</option>
+                        </select>
+                    </td><td width="30%" class="team3name"></td><td width="5%"></td><td width="5%"></td></tr>
+                    <tr><td width="5%">4</td><td width="5%">
+                        <select name="possibleVal" onchange="pointAward('r4PAbr')">
+                            <option hidden></option>
+                            <option value="15">1</option>
+                            <option value="12">2</option>
+                            <option value="10">3</option>
+                            <option value="8">4</option>
+                            <option value="6">5</option>
+                            <option value="4">6</option>
+                            <option value="2">7</option>
+                            <option value="1">8</option>
+                        </select>
+                    </td><td width="30%" class="team4name"></td><td width="5%"></td><td width="5%"></td></tr>
+                    <tr><td width="5%">5</td><td width="5%">
+                        <select name="possibleVal" onchange="pointAward('r5PAbr')">
+                            <option hidden></option>
+                            <option value="15">1</option>
+                            <option value="12">2</option>
+                            <option value="10">3</option>
+                            <option value="8">4</option>
+                            <option value="6">5</option>
+                            <option value="4">6</option>
+                            <option value="2">7</option>
+                            <option value="1">8</option>
+                        </select>
+                    </td><td width="30%" class="team5name"></td><td width="5%"></td><td width="5%"></td></tr>
+                    <tr><td width="5%">6</td><td width="5%">
+                        <select name="possibleVal" onchange="pointAward('r6PAbr')">
+                            <option hidden></option>
+                            <option value="15">1</option>
+                            <option value="12">2</option>
+                            <option value="10">3</option>
+                            <option value="8">4</option>
+                            <option value="6">5</option>
+                            <option value="4">6</option>
+                            <option value="2">7</option>
+                            <option value="1">8</option>
+                        </select>
+                    </td><td width="30%" class="team6name"></td><td width="5%"></td><td width="5%"></td></tr>
+                    <tr><td width="5%">7</td><td width="5%">
+                        <select name="possibleVal" onchange="pointAward('r7PAbr')">
+                            <option hidden></option>
+                            <option value="15">1</option>
+                            <option value="12">2</option>
+                            <option value="10">3</option>
+                            <option value="8">4</option>
+                            <option value="6">5</option>
+                            <option value="4">6</option>
+                            <option value="2">7</option>
+                            <option value="1">8</option>
+                        </select>
+                    </td><td width="30%" class="team7name"></td><td width="5%"></td><td width="5%"></td></tr>
+                    <tr><td width="5%">8</td><td width="5%">
+                        <select name="possibleVal" onchange="pointAward('r8PAbr')">
+                            <option hidden></option>
+                            <option value="15">1</option>
+                            <option value="12">2</option>
+                            <option value="10">3</option>
+                            <option value="8">4</option>
+                            <option value="6">5</option>
+                            <option value="4">6</option>
+                            <option value="2">7</option>
+                            <option value="1">8</option>
+                        </select>
+                    </td><td width="30%" class="team8name"></td><td width="5%"></td><td width="5%"></td></tr>
+                </table>
+            </div>
+            <div>
+                <h1 id="event-header-right">Beach Flags</h1>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores illum porro perspiciatis distinctio itaque sapiente eveniet vero magnam, in fugit ipsa labore eaque provident sed nesciunt dolorem dicta. Ex, distinctio.
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores vel debitis iure eius rerum accusantium possimus necessitatibus architecto dolorem nam? Magnam ea doloremque totam dolore, ratione impedit eveniet ducimus sunt.
+                </p>
+            </div>
+        </div>
+        <hr>
+        <hr>
+        <h1 id="main">Overall Results</h1>
+        <hr>
+        <hr>
+        <table align="center" width="50%">
+            <tr><td width="10%">Place</td><td width="30%">Team</td><td width="10%">Points</td></tr>
+            <tr><td width="10%" id="first">1st</td><td width="30%" id="first"></td><td width="10%" id="first"></td></tr>
+            <tr><td width="10%" id="second">2nd</td><td width="30%" id="second"></td><td width="10%" id="second"></td></tr>
+            <tr><td width="10%" id="third">3rd</td><td width="30%" id="third"></td><td width="10%" id="third"></td></tr>
+            <tr><td width="10%">4th</td><td width="30%"></td><td width="10%"></td></tr>
+            <tr><td width="10%">5th</td><td width="30%"></td><td width="10%"></td></tr>
+            <tr><td width="10%">6th</td><td width="30%"></td><td width="10%"></td></tr>
+            <tr><td width="10%">7th</td><td width="30%"></td><td width="10%"></td></tr>
+            <tr><td width="10%">8th</td><td width="30%"></td><td width="10%"></td></tr>
         </table>
     </body>
 </html>
-
