@@ -37,8 +37,11 @@ function resultsGen() {
             pointotal += parseInt(pointsAwarded);
         }
         results["team".concat(k + 1).concat("name")] = pointotal;
-        
     }
 
+    document.getElementById("1teamname").innerHTML = document.getElementById("team1").value;
+    document.getElementById("1teampoints").innerHTML = results["team1name"]
 
-}    
+
+
+}
