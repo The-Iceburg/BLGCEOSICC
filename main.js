@@ -1,15 +1,10 @@
-//function displayValue() {
-//    let posVal = document.getElementsByName("possibleVal")[0].value;
-//    document.getElementById("testt").innerHTML = posVal
-    // Write into a Separate Document Eventually and session storage
-//}
-
 function teamEntry(teamID) {
     var team = document.getElementById(teamID).value;
     const collection = document.getElementsByClassName(teamID.concat("name"));
     for (let i = 0; i < collection.length; i++) {
         collection[i].innerHTML = team;
-      }
+    }
+    resultsGen();
 }
 
 function pointAward(paLocation) {
@@ -23,4 +18,29 @@ function pointAward(paLocation) {
     }
     var multiplied = parseInt(points) * multiplier;
     document.getElementById(paLocation.replace('PA', 'MU')).innerHTML = multiplied;
+    resultsGen();
 }
+
+function resultsGen() {
+
+    var results = {};
+    const events = ["BR", "AB", "SR", "TR", "RR", "BF"];
+
+    for (let k = 0; k < 8; k++) {
+
+        var pointotal = 0;
+
+        for (let i = 0; i < 6; i++) {
+
+            var id = "R".concat(k + 1).concat(events[i]).concat("MU");
+            var pointsAwarded = document.getElementById(id).value;
+            pointotal += parseInt(pointsAwarded);
+
+        }
+        results["team".concat(k + 1).concat("name")] = pointotal;
+        
+    }
+
+    console.log(results)
+
+}    
