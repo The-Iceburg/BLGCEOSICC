@@ -33,14 +33,12 @@ function resultsGen() {
         for (let i = 0; i < 6; i++) {
 
             var id = "R".concat(k + 1).concat(events[i]).concat("MU");
-            var pointsAwarded = document.getElementById(id).value;
+            var pointsAwarded = document.getElementById(id).textContent;
             pointotal += parseInt(pointsAwarded);
-
         }
         results["team".concat(k + 1).concat("name")] = pointotal;
         
     }
 
-    console.log(results)
 
 }    
