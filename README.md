@@ -1,2 +1,2 @@
-# BLGCEOSICC
-Bournemouth Lifeguard Corps End Of Season Internal Competition Calculator
+# Lifesaving Competition Calculator
+A competition calculator deseigned for lifesaving events
