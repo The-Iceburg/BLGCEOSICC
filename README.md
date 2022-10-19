@@ -1,2 +1,2 @@
 # Lifesaving Competition Calculator
-A competition calculator deseigned for lifesaving events
+A competition calculator designed for lifesaving events
